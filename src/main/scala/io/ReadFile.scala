@@ -22,7 +22,7 @@ object ReadFile {
   }
 }
 
-class ReadFile {
+@SerialVersionUID(12356L) class ReadFile extends Serializable {
   /**
     * 一行行读取文件的内容
     *
