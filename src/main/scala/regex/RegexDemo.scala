@@ -20,5 +20,11 @@ object RegexDemo {
     println(numPattern.findFirstIn(regex))
     // 检查某个字符串的开始部分能匹配，可以使用findPrefixOf
     println(numPattern.findPrefixOf(regex))
+    for (i <- 1 to 10) {
+      print(i)
+    }
+    // 定义一个函数
+    val trint = (x: Int) => 2 * x
+    val fun = 2 * (_: Int)
   }
 }
