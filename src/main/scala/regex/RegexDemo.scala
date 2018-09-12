@@ -29,5 +29,10 @@ object RegexDemo {
     val fun = 2 * (_: Int)
     println(((1.to(9)).map(0.1 * _)))
     (1.to(9)).map("*" * _).foreach(println _)
+
+    // currying 柯里化
+    def mulOneAtTime(x: Int) = (y: Int) => x * y
+
+    println(mulOneAtTime(6)(7))
   }
 }
