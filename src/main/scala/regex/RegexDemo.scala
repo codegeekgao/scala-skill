@@ -23,8 +23,11 @@ object RegexDemo {
     for (i <- 1 to 10) {
       print(i)
     }
+    println()
     // 定义一个函数
     val trint = (x: Int) => 2 * x
     val fun = 2 * (_: Int)
+    println(((1.to(9)).map(0.1 * _)))
+    (1.to(9)).map("*" * _).foreach(println _)
   }
 }
