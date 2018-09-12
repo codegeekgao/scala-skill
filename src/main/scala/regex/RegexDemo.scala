@@ -32,7 +32,7 @@ object RegexDemo {
 
     // currying 柯里化
     def mulOneAtTime(x: Int) = (y: Int) => x * y
-
+    // 闭包函数
     println(mulOneAtTime(6)(7))
   }
 }
