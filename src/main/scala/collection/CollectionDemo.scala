@@ -31,5 +31,17 @@ object CollectionDemo {
     println(number - 3)
     // 使用++添加多个set元素(结果为无序的)
     println(number ++ Set(4, 5, 6))
+    // 使用--移除set中的元素
+    println(number -- Set(1, 2, 5))
+    // 初始化创建List集合映射map
+    val name = List("Bob", "Michael", "Marry")
+    println(name.map(_.toUpperCase))
+    val result = for (n <- name) yield n.toUpperCase
+    println(result)
+
+    // 拼接字符串
+    def unclase(string: String) = Vector(string.toLowerCase(), string.toUpperCase())
+
+    println(name.flatMap(unclase))
   }
 }
