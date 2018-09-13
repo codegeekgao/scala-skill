@@ -1,5 +1,7 @@
 package collection
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
   * 集合demo使用
   *
@@ -15,5 +17,19 @@ object CollectionDemo {
     println(v :+ 5)
     // 集合前添加0(新建集合添加0)
     println(5 +: v)
+    // 初始化构建高效数组缓存
+    val array = ArrayBuffer(1, 2, 3, 4)
+    // 添加元素5
+    println(array += 5)
+    // 删除元素1
+    println(array -= 1)
+    // 初始化Set集合对象
+    val number = Set(1, 2, 3)
+    // 添加4元素(新建set集合添加4)
+    println(number + 4)
+    // 添加4元素(新建set集合移除3)
+    println(number - 3)
+    // 使用++添加多个set元素(结果为无序的)
+    println(number ++ Set(4, 5, 6))
   }
 }
