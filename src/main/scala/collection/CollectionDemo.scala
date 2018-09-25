@@ -38,10 +38,8 @@ object CollectionDemo {
     println(name.map(_.toUpperCase))
     val result = for (n <- name) yield n.toUpperCase
     println(result)
-
     // 拼接字符串
     def unclase(string: String) = Vector(string.toLowerCase(), string.toUpperCase())
-
     println(name.flatMap(unclase))
   }
 }
