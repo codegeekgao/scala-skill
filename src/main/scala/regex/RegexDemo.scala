@@ -1,5 +1,9 @@
 package regex
 
+import java.util
+
+import scala.collection.JavaConversions._
+
 /**
   * Regex demo
   *
@@ -36,5 +40,10 @@ object RegexDemo {
     println(mulOneAtTime(6)(7))
     // 使用Option避免空指针异常
     println(Option(null).isEmpty)
+
+    val map = new util.HashMap[String, String]()
+    map.put("key", "value")
+    map.put("key1", "value1")
+    map.map({ case (key: String, value: String) => print(key + " ") })
   }
 }
