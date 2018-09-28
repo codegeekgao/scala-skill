@@ -34,5 +34,7 @@ object RegexDemo {
     def mulOneAtTime(x: Int) = (y: Int) => x * y
     // 闭包函数
     println(mulOneAtTime(6)(7))
+    // 使用Option避免空指针异常
+    println(Option(null).isEmpty)
   }
 }
