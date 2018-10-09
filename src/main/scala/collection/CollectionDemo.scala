@@ -41,5 +41,6 @@ object CollectionDemo {
     // 拼接字符串
     def unclase(string: String) = Vector(string.toLowerCase(), string.toUpperCase())
     println(name.flatMap(unclase))
+    print( List(new Person("张三",23),new Person("李四",24)).map(_.age).toList.sum)
   }
 }
