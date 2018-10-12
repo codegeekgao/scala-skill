@@ -21,5 +21,6 @@ object StreamDemo {
     val ten = numFrom(10)
     // 默认懒加载,使用force进行计算
     println(ten)
+
   }
 }
