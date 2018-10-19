@@ -11,5 +11,6 @@ object OptionalDemo {
   def main(args: Array[String]): Unit = {
     val str = null
     print(Option(str).isEmpty)
+
   }
 }

@@ -15,4 +15,7 @@ class Person {
     this.name=username
     this.age = age
   }
+
+
+  override def toString = s"Person($name, $age)"
 }
