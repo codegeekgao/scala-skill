@@ -2,6 +2,8 @@ package regex
 
 import java.util
 
+import org.apache.commons.lang3.StringUtils
+
 import scala.collection.JavaConversions._
 
 /**
@@ -45,5 +47,16 @@ object RegexDemo {
     map.put("key", "value")
     map.put("key1", "value1")
     map.map({ case (key: String, value: String) => print(key + " ") })
+
+    val payslip = "JCZQ_HH|20170628018=83(3.00),20170629001=83(3.00)/81(3.35)|1*1,2*1"
+
+    val list=  StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
+      StringUtils.split(str,"=")(0)
+    })).toSet.toList
+    val code = StringUtils.replaceAll(payslip,"\\(.*?\\)","")
+    println(code)
+    val coc = code.split("[|]")(1)
+    println(coc)
+    println(coc.split("=")(1).split("/")(0))
   }
 }

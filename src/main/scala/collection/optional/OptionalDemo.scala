@@ -1,6 +1,7 @@
 package collection.optional
 
-import org.apache.commons.lang3.StringUtils
+import java.lang
+
 
 /**
   * OptionalDemo 学习
@@ -11,15 +12,8 @@ import org.apache.commons.lang3.StringUtils
 object OptionalDemo {
 
   def main(args: Array[String]): Unit = {
-    val payslip = "JCZQ_HH|20170628018=83(3.00),20170629001=83(3.00)/81(3.35)|1*1,2*1"
-
-  val list=  StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
-      StringUtils.split(str,"=")(0)
-    })).toSet.toList
-    val code = StringUtils.replaceAll(payslip,"\\(.*?\\)","")
-    println(code)
-    val coc = code.split("[|]")(1)
-    println(coc)
-    println(coc.split("=")(1).split("/")(0))
+    // 将scala的Map转为java的Map
+      val map = Map("张三" -> 23L,"李四" -> 24L,"王五"-> 25L)
+      println(map.mapValues(new lang.Long(_)).get("张三"))
   }
 }
