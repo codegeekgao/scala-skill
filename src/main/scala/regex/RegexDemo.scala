@@ -54,9 +54,15 @@ object RegexDemo {
       StringUtils.split(str,"=")(0)
     })).toSet.toList
     val code = StringUtils.replaceAll(payslip,"\\(.*?\\)","")
-    println(code)
     val coc = code.split("[|]")(1)
-    println(coc)
-    println(coc.split("=")(1).split("/")(0))
+    val lip="20181104302=5.5#63(1.81),20181104304=-9.5#60(1.68),20181104305=4.5#63(1.81)"
+    println()
+  (lip.split("=")(2).split("/").foreach(println(_)))
+
+   println( StringUtils.replaceAll("JCZQ_SPF|20181103065=80(2.82),20181103071=80(2.08),20181103082=83(2.23),20181103086=80(1.98),20181103096=83(1.56)|5*1","\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
+     StringUtils.split(str,"=")(0)
+   })).toSet.toList.size)
+    val arr = List("1","2","3","4","5","6")
+    arr.combinations(2).foreach(item=>println(item.mkString(",")) )
   }
 }
