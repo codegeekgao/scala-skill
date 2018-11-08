@@ -14,21 +14,7 @@ import scala.collection.JavaConversions._
 object RegexDemo {
 
   def main(args: Array[String]): Unit = {
-    // 初始化正则对象
-    val numPattern = "[0-9]+".r
-    val regex = "13 welcome to beijing"
-    // findAllIn方法返回遍历所有匹配的迭代器，可以在for循环中使用
-    for (matchString <- numPattern.findAllIn(regex)) {
-      println(matchString)
-    }
-    // 查询字符串首个匹配项
-    println(numPattern.findFirstIn(regex))
-    // 检查某个字符串的开始部分能匹配，可以使用findPrefixOf
-    println(numPattern.findPrefixOf(regex))
-    for (i <- 1 to 10) {
-      print(i)
-    }
-    println()
+    RegexFind
     // 定义一个函数
     val trint = (x: Int) => 2 * x
     val fun = 2 * (_: Int)
@@ -49,25 +35,41 @@ object RegexDemo {
 
     val payslip = "JCZQ_HH|20170628018=83(3.00),20170629001=83(3.00)/81(3.35)|1*1,2*1"
 
-    val list=  StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
-      StringUtils.split(str,"=")(0)
+    val list = StringUtils.replaceAll(payslip, "\\(.*?\\)", "").split(";").flatMap(code => code.split("\\|")(1).split(",").map(str => {
+      StringUtils.split(str, "=")(0)
     })).toSet.toList
-    val code = StringUtils.replaceAll(payslip,"\\(.*?\\)","")
+    val code = StringUtils.replaceAll(payslip, "\\(.*?\\)", "")
     val coc = code.split("[|]")(1)
-    val lip="20181104302=5.5#63(1.81),20181104304=-9.5#60(1.68),20181104305=4.5#63(1.81)"
+    val lip = "20181104302=5.5#63(1.81),20181104304=-9.5#60(1.68),20181104305=4.5#63(1.81)"
     println()
-  (lip.split("=")(2).split("/").foreach(println(_)))
+    (lip.split("=")(2).split("/").foreach(println(_)))
 
-    val arr = List("1","2","3","4","5","6")
-    arr.combinations(1).foreach(item=>println(item.mkString(",")) )
-    val array =Array()
-  println(sequenceNoParse("JCZQ_HH|20181107005=85(1.67),20181107006=80(1.17)|2*1"))
-    println("123".substring(0,2))
+    val arr = List("1", "2", "3", "4", "5", "6")
+    arr.combinations(1).foreach(item => println(item.mkString(",")))
+    println(sequenceNoParse("JCZQ_HH|20181107005=85(1.67),20181107006=80(1.17)|2*1"))
   }
 
-  def sequenceNoParse(payslip:String):List[String] = {
-    StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
-      StringUtils.split(str,"=")(0)
+  def sequenceNoParse(payslip: String): List[String] = {
+    StringUtils.replaceAll(payslip, "\\(.*?\\)", "").split(";").flatMap(code => code.split("\\|")(1).split(",").map(str => {
+      StringUtils.split(str, "=")(0)
     })).toSet.toList
+  }
+
+  def RegexFind = {
+    // 初始化正则对象
+    val numPattern = "[0-9]+".r
+    val regex = "13 welcome to beijing"
+    // findAllIn方法返回遍历所有匹配的迭代器，可以在for循环中使用
+    for (matchString <- numPattern.findAllIn(regex)) {
+      println(matchString)
+    }
+    // 查询字符串首个匹配项
+    println(numPattern.findFirstIn(regex))
+    // 检查某个字符串的开始部分能匹配，可以使用findPrefixOf
+    println(numPattern.findPrefixOf(regex))
+    for (i <- 1 to 10) {
+      print(i)
+    }
+    println()
   }
 }
