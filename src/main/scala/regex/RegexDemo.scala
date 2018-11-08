@@ -3,7 +3,6 @@ package regex
 import java.util
 
 import org.apache.commons.lang3.StringUtils
-
 import scala.collection.JavaConversions._
 
 /**
@@ -63,6 +62,7 @@ object RegexDemo {
      StringUtils.split(str,"=")(0)
    })).toSet.toList.size)
     val arr = List("1","2","3","4","5","6")
-    arr.combinations(2).foreach(item=>println(item.mkString(",")) )
+    arr.combinations(1).foreach(item=>println(item.mkString(",")) )
+    val array =Array()
   }
 }

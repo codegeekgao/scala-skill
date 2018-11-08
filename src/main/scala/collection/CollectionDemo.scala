@@ -46,6 +46,5 @@ object CollectionDemo {
     print(List(new Person("张三", 23), new Person("李四", 24)).map(_.age).toList.sum)
     // lengthCompare 比较长度
     println(List("1","2").lengthCompare(2) == 0 && List("2").size == 1)
-
   }
 }
