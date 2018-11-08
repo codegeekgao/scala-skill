@@ -58,11 +58,16 @@ object RegexDemo {
     println()
   (lip.split("=")(2).split("/").foreach(println(_)))
 
-   println( StringUtils.replaceAll("JCZQ_SPF|20181103065=80(2.82),20181103071=80(2.08),20181103082=83(2.23),20181103086=80(1.98),20181103096=83(1.56)|5*1","\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
-     StringUtils.split(str,"=")(0)
-   })).toSet.toList.size)
     val arr = List("1","2","3","4","5","6")
     arr.combinations(1).foreach(item=>println(item.mkString(",")) )
     val array =Array()
+  println(sequenceNoParse("JCZQ_HH|20181107005=85(1.67),20181107006=80(1.17)|2*1"))
+    println("123".substring(0,2))
+  }
+
+  def sequenceNoParse(payslip:String):List[String] = {
+    StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
+      StringUtils.split(str,"=")(0)
+    })).toSet.toList
   }
 }
