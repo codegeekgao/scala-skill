@@ -47,6 +47,7 @@ object RegexDemo {
     val arr = List("1", "2", "3", "4", "5", "6")
     arr.combinations(1).foreach(item => println(item.mkString(",")))
     println(sequenceNoParse("JCZQ_HH|20181107005=85(1.67),20181107006=80(1.17)|2*1"))
+    BigDecimalConver()
   }
 
   def sequenceNoParse(payslip: String): List[String] = {
@@ -71,5 +72,10 @@ object RegexDemo {
       print(i)
     }
     println()
+  }
+
+  def BigDecimalConver(): Unit = {
+    val str = new java.math.BigDecimal(1)
+    println(BigDecimal(str))
   }
 }
