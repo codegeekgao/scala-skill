@@ -1,0 +1,6 @@
+package ifJudge
+
+
+class Demo {
+
+}
