@@ -3,6 +3,7 @@ package regex
 import java.util
 
 import org.apache.commons.lang3.StringUtils
+
 import scala.collection.JavaConversions._
 
 /**
@@ -14,7 +15,7 @@ import scala.collection.JavaConversions._
 object RegexDemo {
 
   def main(args: Array[String]): Unit = {
-    RegexFind
+   // RegexFind
     // 定义一个函数
     val trint = (x: Int) => 2 * x
     val fun = 2 * (_: Int)
@@ -26,8 +27,17 @@ object RegexDemo {
     // 闭包函数
     println(mulOneAtTime(6)(7))
     // 使用Option避免空指针异常
-    println(Option(null).isEmpty)
+  //  println(Option(null).isEmpty)
 
+  //  validate11x5("R5|03$01,02,04,07,11")
+
+   // demo
+
+   val time= "1,1,1,1,1".split(",")(5)
+   // println(time)
+  }
+
+  private def demo() = {
     val map = new util.HashMap[String, String]()
     map.put("key", "value")
     map.put("key1", "value1")
@@ -77,5 +87,23 @@ object RegexDemo {
   def BigDecimalConver(): Unit = {
     val str = new java.math.BigDecimal(1)
     println(BigDecimal(str))
+  }
+
+  /**
+    * 11 选5验证
+    * @param payslip payslip
+    */
+  def validate11x5(payslip:String): Unit = {
+    println("----start validate---")
+    payslip.split(";").map(code=>{
+      if(code.contains("$") && code.split("\\|")(0).toCharArray()(1).toString.toInt == 8){
+        throw new RuntimeException
+      }
+
+      val total = code.split("\\|")(1).split(",").size
+      if(code.contains("$") && total < code.split("\\|")(0).toCharArray()(1).toString.toInt){
+        throw new RuntimeException
+      }
+    })
   }
 }

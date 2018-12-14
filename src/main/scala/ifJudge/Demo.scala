@@ -1,6 +1,0 @@
-package ifJudge
-
-
-class Demo {
-
-}
