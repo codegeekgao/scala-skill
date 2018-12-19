@@ -61,5 +61,9 @@ object DemoIf {
 
   def main(args: Array[String]): Unit = {
     print(this.getTradeAmounts(BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(5)))
+
+    var list = List(1, 2, 3, 4)
+     list=list ++ List(5, 6)
+    println(list)
   }
 }
