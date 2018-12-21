@@ -5,6 +5,7 @@ import java.util
 import org.apache.commons.lang3.StringUtils
 
 import scala.collection.JavaConversions._
+import scala.collection.mutable.ListBuffer
 
 /**
   * Regex demo
@@ -15,7 +16,7 @@ import scala.collection.JavaConversions._
 object RegexDemo {
 
   def main(args: Array[String]): Unit = {
-   // RegexFind
+    // RegexFind
     // 定义一个函数
     val trint = (x: Int) => 2 * x
     val fun = 2 * (_: Int)
@@ -27,9 +28,9 @@ object RegexDemo {
     // 闭包函数
     println(mulOneAtTime(6)(7))
     // 使用Option避免空指针异常
-  //  println(Option(null).isEmpty)
+    //  println(Option(null).isEmpty)
 
-  //  validate11x5("R5|03$01,02,04,07,11")
+    //  validate11x5("R5|03$01,02,04,07,11")
     demo
   }
 
@@ -51,8 +52,14 @@ object RegexDemo {
     println()
     (lip.split("=")(2).split("/").foreach(println(_)))
 
-    val arr = List("1", "2", "3", "4", "5", "6")
-    arr.combinations(3).foreach(item => println(item.mkString(",")))
+    // 创建可变的listhu缓存
+    val arr = new ListBuffer[Int]
+    // for循环until 不包含尾，to 包含尾
+    for (i <- 1 to (33)) {
+      arr += i
+    }
+    arr.toList.combinations(6).foreach(d => {println(d.mkString(","))})
+
   }
 
   def sequenceNoParse(payslip: String): List[String] = {
@@ -86,17 +93,18 @@ object RegexDemo {
 
   /**
     * 11 选5验证
+    *
     * @param payslip payslip
     */
-  def validate11x5(payslip:String): Unit = {
+  def validate11x5(payslip: String): Unit = {
     println("----start validate---")
-    payslip.split(";").map(code=>{
-      if(code.contains("$") && code.split("\\|")(0).toCharArray()(1).toString.toInt == 8){
+    payslip.split(";").map(code => {
+      if (code.contains("$") && code.split("\\|")(0).toCharArray()(1).toString.toInt == 8) {
         throw new RuntimeException
       }
 
       val total = code.split("\\|")(1).split(",").size
-      if(code.contains("$") && total < code.split("\\|")(0).toCharArray()(1).toString.toInt){
+      if (code.contains("$") && total < code.split("\\|")(0).toCharArray()(1).toString.toInt) {
         throw new RuntimeException
       }
     })
