@@ -30,17 +30,14 @@ object RegexDemo {
   //  println(Option(null).isEmpty)
 
   //  validate11x5("R5|03$01,02,04,07,11")
-
-   // demo
-
-   val time= "1,1,1,1,1".split(",")(5)
-   // println(time)
+    demo
   }
 
   private def demo() = {
     val map = new util.HashMap[String, String]()
     map.put("key", "value")
     map.put("key1", "value1")
+    //TODO map. case 有啥含义？
     map.map({ case (key: String, value: String) => print(key + " ") })
 
     val payslip = "JCZQ_HH|20170628018=83(3.00),20170629001=83(3.00)/81(3.35)|1*1,2*1"
@@ -55,9 +52,7 @@ object RegexDemo {
     (lip.split("=")(2).split("/").foreach(println(_)))
 
     val arr = List("1", "2", "3", "4", "5", "6")
-    arr.combinations(1).foreach(item => println(item.mkString(",")))
-    println(sequenceNoParse("JCZQ_HH|20181107005=85(1.67),20181107006=80(1.17)|2*1"))
-    BigDecimalConver()
+    arr.combinations(3).foreach(item => println(item.mkString(",")))
   }
 
   def sequenceNoParse(payslip: String): List[String] = {
