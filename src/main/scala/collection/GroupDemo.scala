@@ -10,6 +10,7 @@ object GroupDemo {
     })
 
     println(list)
+    println(list.map(_._1))
     println(list.map(_._1._1))
     println(list.map(_._1._2))
     println(list.map(_._2))

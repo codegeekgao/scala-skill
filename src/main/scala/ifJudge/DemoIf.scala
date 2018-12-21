@@ -1,5 +1,7 @@
 package ifJudge
 
+import org.apache.commons.lang3.StringUtils
+
 object DemoIf {
 
   /**
@@ -59,8 +61,15 @@ object DemoIf {
 
   }
 
+  //解析成List[sequenceNo]
+  def sequenceNoParse(payslip:String):List[String] = {
+    StringUtils.replaceAll(payslip,"\\(.*?\\)","").split(";").flatMap(code=>code.split("\\|")(1).split(",").map(str => {
+      StringUtils.split(str,"=")(0)
+    })).toSet.toList
+  }
+
   def main(args: Array[String]): Unit = {
-    print(this.getTradeAmounts(BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(5)))
+   // print(this.getTradeAmounts(BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(10), BigDecimal(5)))
 
     var list = List(1, 2, 3, 4)
      list=list ++ List(5, 6)
