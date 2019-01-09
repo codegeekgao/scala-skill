@@ -41,6 +41,6 @@ class ScalaTest {
 
   @Test
   def testNonEmpty(): Unit = {
-    print(List().nonEmpty)
+    print(List(1,2).nonEmpty)
   }
 }
