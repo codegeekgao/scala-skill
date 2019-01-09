@@ -38,4 +38,9 @@ class ScalaTest {
     val yesterday: LocalDate = LocalDate.now
     yesterday.format(shortFormat) + " 00:00:00"
   }
+
+  @Test
+  def testNonEmpty(): Unit = {
+    print(List().nonEmpty)
+  }
 }
