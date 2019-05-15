@@ -14,10 +14,10 @@ object GroupDemo {
     })
 
     println(personList)
-    println(personList.map(_._1))
+    println(personList.keys)
     println(personList.map(_._1._1))
     println(personList.map(_._1._2))
-    println(personList.map(_._2))
+    println(personList.values)
     println("========")
     val list = List("1", "2", "3", "4", "5", "6")
     val arrayList = new util.ArrayList[List[String]]()
